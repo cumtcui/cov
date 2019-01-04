@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* div {
+            border: 1px solid red;
+        } */
+        
+        .demo{
+            background:gray;
+        }
+
+        .main-timeline .timeline{
+            position: relative;            
+        }
+        
+        .main-timeline .timeline:nth-child(2n){
+            direction:rtl;
+        }
+        
+        .main-timeline .timeline::before,        
+        .main-timeline .timeline::after{
+            content:"";
+            display:block;
+            width:100%;
+            clear:both;
+        }
+
+        .main-timeline .timeline-icon{
+            display:block;
+            width:50px;
+            height:50px;
+            line-height: 35px;
+            border-radius: 50%;
+            background:#1d2124;
+            border:6px solid #f4a24c;
+            margin:auto;
+            font-size:30px;
+            font-weight:bold;
+            color:white;
+            text-transform:uppercase;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left:0;
+            bottom:0;
+            right:0;
+            z-index:1;
+        }
+
+        .main-timeline .timeline-content{
+            width:50%;
+            padding-right:100px;
+            border-right: 1px solid pink;
+        }
+        
+        .main-timeline i{
+            float:left;
+            margin-right: 15px;
+            font-size:40px;
+            color:#f4a24c;
+        }
+
+        .main-timeline .description{
+            font-size: 16px;
+            color:white;
+            line-height: 24px;
+            margin: 0;
+        }
+
+        .main-timeline .year{
+            width:50%;
+            padding-left:10px;
+            position:absolute;
+            top:50%;
+            right:0;
+            transform:translateY(-70%);
+        }
+
+        .main-timeline .year span{
+            display:inline-block;
+            padding:12px 15px 12px 25px;
+            background:#f4a24c;
+            border-radius: 0 15px 15px 0;
+            font-weight:bold;
+            line-height:4px;
+            color:white;
+        }
+        
+        .main-timeline .timeline:nth-child(2n).timeline-icon::before{
+            border-right:none;
+            border-left:15px solid #262626;
+            left: auto;
+            right: -33px;
+        }
+
+        .main-timeline .timeline:nth-child(2n).timeline-content{
+            float:right;
+            padding: 0 0 0 100px;
+            border-left: 1px solid red;
+        }
+
+        .main-timeline .timeline:nth-child(2n).description{
+            padding-left: 20px;
+        }
+        
+        .main-timeline .timeline:nth-child(2n).year{
+            padding: 0 50px 0 0;
+            text-align:right;
+            right: auto;
+            left:0;
+        }
+
+        .main-timeline .timeline:nth-child(2n).year span{border-radius: 50px 0 0 50px;}
+        .main-timeline .timeline:nth-child(2n).timeline-icon{border-color:#f26f77;}
+        .main-timeline .timeline:nth-child(2n).icon{color:#f26f77;}
+        .main-timeline .timeline:nth-child(2n)::before,
+        .main-timeline .timeline:nth-child(2n).timeline-content{border-left: 1px solid aliceblue;}
+        /* div::before{
+            content:attr(class);
+            display:block;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-timeline">
+                        <div class="timeline">
+                            <span class="timeline-icon">a</span>
+                            <div class="timeline-content">
+                                <i class="fa fa-briefcase"></i>
+                                <div class="description">
+                                        askdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkf
+                                </div>
+                            </div>
+                            <div class="year"><span>2018</span></div>
+                        </div>
+                        <div class="timeline">
+                            <span class="timeline-icon">b</span>
+                            <div class="timeline-content">
+                                <i class="fa fa-apple"></i>
+                                <div class="description">
+                                        askdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkf
+                                </div>
+                            </div>
+                            <div class="year"><span>2018</span></div>
+                        </div>
+                        <div class="timeline">
+                            <span class="timeline-icon">c</span>
+                            <div class="timeline-content">
+                                <i class="fa fa-apple"></i>
+                                <div class="description">
+                                        askdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkf
+                                </div>
+                            </div>
+                            <div class="year"><span>2018</span></div>
+                        </div>
+                        <div class="timeline">
+                            <span class="timeline-icon">d</span>
+                            <div class="timeline-content">
+                                <i class="fa fa-apple"></i>
+                                <div class="description">
+                                        askdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkfaskdfalksdjfa;jsdfakjsdf;kajsdfkjaskdfjalksdfja;sldfjalk
+                                        kdfjasdkf
+                                </div>
+                            </div>
+                            <div class="year"><span>2018</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

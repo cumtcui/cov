@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Vehicle Tracking</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="glyphicon.css">
+    <link href="jumbotron.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="logistics.css"> -->
+    <style type="text/css">
+        .wall {
+            padding: 1rem 1rem;
+            margin-bottom: 0.5rem;
+            background-color: #D2090F;
+            color: white;
+        }
+    </style>
+
+    <style>
+        ul {
+            outline: outside none none;
+            margin-top: 10px;
+            color:red;
+        }
+
+        li {
+            /* border-left: red solid 10px; */
+            border-bottom: #D2090F solid 1px;
+            position: relative;
+            list-style: outside none none;
+            padding: 1px 1px 10px 1px;
+        }
+
+        li .before {
+            /* border-radius: 10px; */
+            left: -25px;
+            top: 0em;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            /* background-color: gray; */
+        }
+
+        li.first {
+            color: gray;
+            border-color: gray;
+        }
+
+        /* li.first span {
+            background-color: red;
+        } */
+
+        li.first span {
+            border-color: gray;
+        }
+
+        li .after {
+            position: absolute;
+            border-left: #D2090F solid 1px;
+            left: -13px;
+            top: 1.3em;
+            height: 75%;
+            width: 0px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wall">
+        <h5>Order Details</h5>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-3 hidden-xs"></div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div data-toggle="collapse"><h6>Order Information</h6></div>
+                <div id="collapse1" class="collapse">
+                    aaaaa
+                </div>
+                <div data-toggle="collapse"><h6>Status List</h6></div>
+                <div id="collapse2" class="collpase">
+                        <ul>
+                                <li class="first">
+                                    <p>2015-04-28 11:23:28</p>
+                                    <p>Position latest</p>
+                                    <span class="before"><i class="material-icons">check_circle</i>
+                                    </span>
+                                    <span class="after"></span>
+                                </li>
+                                <li>
+                                    <p>2015-04-28 07:38:44</p>
+                                    <p>Position latest</p>
+                                    <span class="before"><i class="material-icons">check_circle</i></span><span class="after"></span>
+                                </li>
+                                <li>
+                                    <p>2015-04-28 05:08:00</p>
+                                    <p>Position latest</p>
+                                    <span class="before"><i class="material-icons">check_circle</i></span><span class="after"></span>
+                                </li>
+                                <li>
+                                    <p>2015-04-28 00:00:00</p>
+                                    <p>Position latest</p>
+                                    <span class="before"><i class="material-icons">check_circle</i></span><span class="after"></span>
+                                </li>
+                                <li>
+                                    <p>2015-04-27 15:00:00</p>
+                                    <p>Position latest</p>
+                                    <span class="before"><i class="material-icons">check_circle</i></span><span class="after"></span>
+                                </li>
+                                <li>
+                                    <p>2015-04-27 08:46:00</p>
+                                    <p>Position latest</p>
+                                    <span class="before"><i class="material-icons">check_circle</i></span><span class="after"></span>
+                                </li>
+                                <li>
+                                    <p>2015-04-26 17:12:00</p>
+                                    <p>Position latest</p>
+                                    <span class="before"><i class="material-icons">check_circle</i></span><span class="after"></span>
+                                </li>
+                            </ul>
+                    </div>
+            </div>
+        </div>
+    </div> <!-- /container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>

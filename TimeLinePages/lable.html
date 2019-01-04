@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>lable</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.bootstrap.min.css" />
+
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.timezones.min.js"></script>
+
+    <style>
+        .jumbotron-fluid {
+            padding: 0.5rem 1rem;
+            background-color: red;
+            color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron-fluid">
+        <h3>Order Information</h4>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-12" style="border:1px solid red;">
+                <div class="media">
+                    <div class="media-body">
+                        <h5 class="mt-3">Order Detail</h5>
+                        <dl class="row">
+                                <dt class="col-sm-6">Order ID</dt>
+                                <dd class="col-sm-6">#: omOrderId #</dd>
+
+                                <dt class="col-sm-6">Chassis Number</dt>
+                                <dd class="col-sm-6">#: chassisNumber #</dd>
+
+                                <dt class="col-sm-6">Company Name</dt>
+                                <dd class="col-sm-6">#: companyName #</dd>
+
+                                <dt class="col-sm-6">Brand</dt>
+                                <dd class="col-sm-6">#: brand #</dd>
+                            </dl>
+                    </div>
+                    <img class="rounded mt-3 mr-3 hidden-xs" src="1.jpg" alt="Generic placeholder image" style="width:100px; height:100px;">
+                </div>
+                <section id="orderInfoSection" class="well">
+                    <h4>Order Information</h4>
+                    <div id="orderInfo" class="row" style="background-color: #FFF">
+                        <div class="col-sm-12 visible-xs">
+                            <figure class="visible-sm">
+                                <img src="1.jpg" class="rounded" />
+                                <figcaption class="hidden-xs">
+                                    <h4>UD</h4>
+                                    <p class="hidden-sm">
+                                        4x4
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                            <dl class="row">
+                                <dt class="col-sm-6">Order ID</dt>
+                                <dd class="col-sm-6">#: omOrderId #</dd>
+
+                                <dt class="col-sm-6">Chassis Number</dt>
+                                <dd class="col-sm-6">#: chassisNumber #</dd>
+
+                                <dt class="col-sm-6">Company Name</dt>
+                                <dd class="col-sm-6">#: companyName #</dd>
+
+                                <dt class="col-sm-6">Brand</dt>
+                                <dd class="col-sm-6">#: brand #</dd>
+                            </dl>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 hidden-xs">
+                            <figure style="padding: 1rem;">
+                                <img src="1.jpg" class="img-responsive" />
+                                <figcaption class="hidden-xs">
+                                    <h4>UD</h4>
+                                    <p class="hidden-sm">
+                                        4x4
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

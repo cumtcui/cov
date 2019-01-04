@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Timeline using html 5 and css 3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* div {
+            border: 1px solid rgba(214, 14, 14, 0.5);
+        } */
+
+        .demo {
+            background: rgba(30, 3, 184, 0.2);
+            position: relative;
+        }
+
+        .main-timeline {
+            overflow: auto;
+            /* position: relative; */
+        }
+
+        .main-timeline .timeline {
+            position: relative;
+        }
+
+        .main-timeline .timeline::before,
+        .main-timeline .timeline::after {
+            content: "";
+            display: block;
+            clear: both;
+            width: 100%;
+        }
+
+        .main-timeline .timeline::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 20px;
+            height: 100%;
+            background-color: green;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 30px;
+            color: white;
+            line-height: 45px;
+            text-transform: uppercase;
+            border-radius: 50%;
+            background: green;
+            border: 6px solid gray;
+            z-index: 1;
+        }
+
+        .timeline-icon::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-right: 15px solid green;
+            ;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            margin: auto 0;
+            position: absolute;
+            top: 0;
+            left: -33px;
+            bottom: 0;
+        }
+
+        .timeline-content {
+            width: 50%;
+            padding-right: 60px;
+        }
+
+        .main-timeline .year {
+            /* position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transform: translateX(100%);
+            text-align: center;
+            background-color: #f4a24c;
+            height: 20px;
+            width: 100px; */
+            width: 50%;
+            padding-left: 15px;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .main-timeline .year span {
+            display: inline-block;
+            padding: 12px 25px 12px 25px;
+            background: #f4a24c;
+            border-radius: 0 50px 50px 0;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 16px;
+            color: #fff;
+        }
+
+        .main-timeline .timeline:first-child::before {
+            top: 0;
+            height: 50%;
+        }
+
+        .main-timeline .timeline:nth-child(2n) .timeline-content {
+            float: right;
+            padding: 0 0 0 60px;
+        }
+
+        .main-timeline .timeline:nth-child(2n) .year {
+            padding: 0 15px 0 0;
+            text-align: right;
+            right: auto;
+            left: 0;
+        }
+
+        .main-timeline .timeline:nth-child(2n) .timeline-icon:before {
+            border-right: none;
+            border-left: 15px solid green;
+            left: auto;
+            right: -33px;
+        }
+
+        .main-timeline .timeline:nth-child(2n) .year span {
+            border-radius: 50px 0 0 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-timeline">
+                        <div class="timeline">
+                            <span class="timeline-icon"><i class="icon fa fa-check"></i></span>
+                            <div class="timeline-content">
+                                <i class="icon fa fa-globe"></i>
+                                <p class="description">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at laoreet risus,
+                                    mollis rhoncus felis. Nulla consectetur pretium lacinia. Morbi pharetra, quam non
+                                    commodo pulvinar, dui diam laoreet purus, vitae commodo ipsum lorem nec lacus.
+                                    Etiam et malesuada dolor. Integer consequat mauris in orci lobortis, non dictum sem
+                                    pharetra. Donec ut lacus enim. Sed tempor interdum elementum. Donec consequat
+                                    interdum consequat. Donec scelerisque sodales nisi, eu condimentum justo consequat
+                                    et.
+                                </p>
+                            </div>
+                            <div class="year"><span>2018</span></div>
+                        </div>
+                        <div class="timeline">
+                            <span class="timeline-icon"><i class="icon fa fa-check"></i></span>
+                            <div class="timeline-content">
+                                <i class="icon fa fa-briefcase"></i>
+                                <p class="description">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at laoreet risus,
+                                    mollis rhoncus felis. Nulla consectetur pretium lacinia. Morbi pharetra, quam non
+                                    commodo pulvinar, dui diam laoreet purus, vitae commodo ipsum lorem nec lacus.
+                                    Etiam et malesuada dolor. Integer consequat mauris in orci lobortis, non dictum sem
+                                    pharetra. Donec ut lacus enim. Sed tempor interdum elementum. Donec consequat
+                                    interdum consequat. Donec scelerisque sodales nisi, eu condimentum justo consequat
+                                    et.
+                                </p>
+                            </div>
+                            <div class="year"><span>2016</span></div>
+                        </div>
+                        <div class="timeline">
+                            <span class="timeline-icon"><i class="icon fa fa-check"></i></span>
+                            <div class="timeline-content">
+                                <i class="icon fa fa-briefcase"></i>
+                                <p class="description">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at laoreet risus,
+                                    mollis rhoncus felis. Nulla consectetur pretium lacinia. Morbi pharetra, quam non
+                                    commodo pulvinar, dui diam laoreet purus, vitae commodo ipsum lorem nec lacus.
+                                    Etiam et malesuada dolor. Integer consequat mauris in orci lobortis, non dictum sem
+                                    pharetra. Donec ut lacus enim. Sed tempor interdum elementum. Donec consequat
+                                    interdum consequat. Donec scelerisque sodales nisi, eu condimentum justo consequat
+                                    et.
+                                </p>
+                            </div>
+                            <div class="year"><span>2017</span></div>
+                        </div>
+                        <div class="timeline">
+                            <span class="timeline-icon"><i class="icon fa fa-check"></i></span>
+                            <div class="timeline-content">
+                                <i class="icon fa fa-briefcase"></i>
+                                <p class="description">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at laoreet risus,
+                                    mollis rhoncus felis. Nulla consectetur pretium lacinia. Morbi pharetra, quam non
+                                    commodo pulvinar, dui diam laoreet purus, vitae commodo ipsum lorem nec lacus.
+                                    Etiam et malesuada dolor. Integer consequat mauris in orci lobortis, non dictum sem
+                                    pharetra. Donec ut lacus enim. Sed tempor interdum elementum. Donec consequat
+                                    interdum consequat. Donec scelerisque sodales nisi, eu condimentum justo consequat
+                                    et.
+                                </p>
+                            </div>
+                            <div class="year"><span>2015</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

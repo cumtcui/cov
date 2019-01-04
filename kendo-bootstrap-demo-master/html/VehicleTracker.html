@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.bootstrap.min.css" />
+
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.timezones.min.js"></script>
+
+    <script src="theme-chooser.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <style type="text/css">
+        #udLog {
+            width: 60px;
+            height: 60px;
+            margin: 10px 20px
+        }
+
+        #websiteTitle {
+            font-size: 1em;
+            vertical-align: middle;
+            font-family: 'Poiret One', cursive;
+            padding-left: 15px;
+            color: #4A4947s
+        }
+
+        /* #websiteSlogan {
+            font-size: 1em;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container" class="row">
+        <div class="jumbotron">
+            <img id="udLog" src="images/UDLogo.png" alt="UD">
+            <span id="websiteTitle">Vehicle Tracker</span>
+            <!-- <p id="websiteSlogan">Slogan</p> -->
+        </div>
+
+        <div id="signInDiv" class="well input-group input-group-lg col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3  col-xs-12">
+            <h6 class="ra-well-title">Customer sign in</h6>
+            <span>Email address of your UD account </span>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="input-group input-group-lg md">
+                        <span class="input-group-addon" >
+                            <span class="k-icon k-i-user"></span>Email
+                        </span>
+                        <input type="text" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon">
+                                <span class="k-icon k-i-user"></span>PIN&lt;
+                            </span>
+                            <input type="text" class="form-control" placeholder="PIN">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <button id="signIn" type="button" class="btn btn-default pull-right" aria-hidden="true">
+                        Sign in<span class="k-icon k-i-login"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <!-- <section id="loginsection" class="well col-sm-6">
+            <h2 class="ra-well-title">Login</h2>
+
+            <div class="form-horizontal form-widgets col-sm-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="name">User Name</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input id="name" value="" placeholder="UserName / Email" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="birthday">PIN</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input type="password" value="" placeholder="PIN" />
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="buttons-wrap">
+                <button class="k-button k-state-default" id="login">Login</button>
+            </div>
+        </section> -->
+        <div id="orders" class="ra-section"></div>
+        
+    </div>
+    <script>
+
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://localhost:37048/v1/Authorize",
+                    type: "POST",
+                    dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: function () {
+                        return {
+                            skip: 0,
+                            take: 2
+                        };
+                    }
+                }
+            }
+        });
+        dataSource.fetch();
+
+        $("#menu").kendoMenu();
+
+        function resizeTabStripContent() {
+            kendo.resize("#tabstrip");
+        }
+
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: { effects: "fadeIn" }
+            }
+        });
+
+        $("#signIn").click(function (e) {
+            e.preventDefault();
+            $("#signInDiv").toggle();
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:37048/v1/Authorize',
+                datatype: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({ 'userinfo': { 'userid': $("#username").val() } }),
+                success: function (result) {
+                    $("loginsection").toggleClass("hidden-sm");
+                    $("#orders").kendoGrid({
+                        dataSource: {
+                            type: "odata",
+                            transport: {
+                                read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+                            },
+                            serverPaging: true,
+                            serverSorting: true,
+                            serverFiltering: true,
+                            pageSize: 10
+                        },
+                        scrollable: false,
+                        sortable: true,
+                        groupable: true,
+                        pageable: { buttonCount: 4 },
+                        columns: [
+                            { field: "OrderID", width: "70px" },
+                            { field: "ShipCountry", title: "Ship Country", width: "20%" },
+                            { field: "ShipAddress", title: "Ship Address" }
+                        ]
+                    });
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            // create a template using the above definition
+            var template = kendo.template($("#template").html());
+
+            var orders = [
+                { "OrderId": 1, "rating": 9.2, "year": 1994, "Status": "The Shawshank Redemption" },
+                { "OrderId": 2, "rating": 9.2, "year": 1972, "Status": "The Godfather" },
+                { "OrderId": 3, "rating": 9, "year": 1974, "Status": "The Godfather: Part II" },
+                { "OrderId": 4, "rating": 8.9, "year": 1966, "Status": "Il buono, il brutto, il cattivo." },
+                { "OrderId": 5, "rating": 8.9, "year": 1994, "Status": "Pulp Fiction" },
+                { "OrderId": 6, "rating": 8.9, "year": 1957, "Status": "12 Angry Men" },
+                { "OrderId": 7, "rating": 8.9, "year": 1993, "Status": "Schindler's List" },
+                { "OrderId": 8, "rating": 8.8, "year": 1975, "Status": "One Flew Over the Cuckoo's Nest" },
+                { "OrderId": 9, "rating": 8.8, "year": 2010, "Status": "Inception" },
+                { "OrderId": 10, "rating": 8.8, "year": 2008, "Status": "The Dark Knight" }
+            ];
+
+            var dataSource = new kendo.data.DataSource({
+                data: orders,
+                read:{
+                    data:orders
+                }
+            });
+
+            $("#orders").kendoGrid({
+                DataSource=dataSource
+            })
+        });
+    </script>
+</body>
+
+</html>

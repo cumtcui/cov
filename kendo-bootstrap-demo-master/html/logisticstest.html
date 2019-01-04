@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="vender/bootstrap.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        ul {
+            outline: outside none none;
+            margin-top: 10px;
+        }
+
+        li {
+            /* border-left: red solid 10px; */
+            border-bottom: gray solid 1px;
+            position: relative;
+            list-style: outside none none;
+            padding: 1px 1px 10px 1px;
+        }
+
+        #div1 {
+            border-top: gray solid 1px;
+            margin: 6px 0px;
+        }
+
+        li .before {
+            border-radius: 10px;
+            left: -16.5px;
+            top: 0.5em;
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            background-color: gray;
+        }
+
+        li.first{
+            color:red;
+            border-color:red;
+        }
+
+        li.first span{
+            background-color:red;
+        }
+
+        li.first span{
+            border-color:red;
+        }
+
+        li .after {
+            position: absolute;
+            border-left: gray solid 1px;
+            left:-13px;
+            top:1.3em;
+            height: 65%;
+            width:0px;
+            
+        }
+
+        .tag{
+            position:absolute;
+            left:-40px;
+            top:0.2em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-3 hidden-xs"></div>
+            <div id="div1" class="col-lg-4 col-md-4 col-sm-6">
+                <ul>
+                    <li class="first">
+                        <p>2015-04-28 11:23:28</p>
+                        <p>Position latest</p>
+                        <span class="before">
+                        </span>
+                        <span class="after"></span>
+                        <i class="glyphicon glyphicon-tag tag"></i>
+                    </li>
+                    <li>
+                        <p>2015-04-28 07:38:44</p>
+                        <p>Position latest</p>
+                        <span class="before"></span><span class="after"></span>
+                    </li>
+                    <li>
+                        <p>2015-04-28 05:08:00</p>
+                        <p>Position latest</p>
+                        <span class="before"></span><span class="after"></span>
+                    </li>
+                    <li>
+                        <p>2015-04-28 00:00:00</p>
+                        <p>Position latest</p>
+                        <span class="before"></span><span class="after"></span>
+                    </li>
+                    <li>
+                        <p>2015-04-27 15:00:00</p>
+                        <p>Position latest</p>
+                        <span class="before"></span><span class="after"></span>
+                    </li>
+                    <li>
+                        <p>2015-04-27 08:46:00</p>
+                        <p>Position latest</p>
+                        <span class="before"></span><span class="after"></span>
+                    </li>
+                    <li>
+                        <p>2015-04-26 17:12:00</p>
+                        <p>Position latest</p>
+                        <span class="before"></span><span class="after"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.timezones.min.js"></script>
+    <script src="theme-chooser.js"></script>
+</body>

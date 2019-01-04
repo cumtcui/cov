@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.bootstrap.min.css" />
+
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.timezones.min.js"></script>
+
+
+    <script src="theme-chooser.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+    <div id="example" class="container">
+        <section class="well">
+            <h2 class="ra-well-title">What is this page?</h2>
+
+            <p>This page shows how to use Kendo UI alongside Twitter Bootstrap.</p>
+
+            <p>The grid layout and responsive CSS is provided by Bootstrap, and widgets are provided by Kendo UI.</p>
+
+            <p>Resize the page or customize it using the pickers above to see its responsive features.</p>
+        </section>
+
+        <section id="faq" class="well">
+            <h2 class="ra-well-title">Order Information</h2>
+
+            <ul id="panelbar" class="ra-well-overlay">
+                <li class="k-state-active">
+                    <div>
+                        <p>Kendo UI is a HTML5, jQuery-based framework for building modern HTML apps. Kendo UI combines
+                            the best of emerging HTML5, CSS3, and JavaScript technologies with robust, cross-browser
+                            techniques to deliver a framework that is both powerfully rich and broadly compatible with
+                            older browsers.</p>
+                        <p>Kendo UI combines everything that a developer needs to build a rich JavaScript app,
+                            eliminating the traditional challenge of manually researching and combining all of the
+                            needed plug-ins, frameworks, and libraries needed to build apps. Kendo UI includes rich UI
+                            controls for desktop, mobile and data vizualization, a JavaScript DataSource, fast
+                            Templates, cross-device Drag and Drop API, Globalization, Validation and MVVM framework
+                            extensions, and more.</p>
+                        <p><a href="https://www.telerik.com/download/kendo-ui-complete">Download Kendo UI</a> and
+                            experience the difference today</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section id="faq1" class="well">
+                <h2 class="ra-well-title">Vehicle Status Update</h2>
+    
+                <ul id="panelbar1" class="ra-well-overlay">
+                    <li class="k-state-active">
+                        <div>
+                            <p>Kendo UI is a HTML5, jQuery-based framework for building modern HTML apps. Kendo UI combines
+                                the best of emerging HTML5, CSS3, and JavaScript technologies with robust, cross-browser
+                                techniques to deliver a framework that is both powerfully rich and broadly compatible with
+                                older browsers.</p>
+                            <p>Kendo UI combines everything that a developer needs to build a rich JavaScript app,
+                                eliminating the traditional challenge of manually researching and combining all of the
+                                needed plug-ins, frameworks, and libraries needed to build apps. Kendo UI includes rich UI
+                                controls for desktop, mobile and data vizualization, a JavaScript DataSource, fast
+                                Templates, cross-device Drag and Drop API, Globalization, Validation and MVVM framework
+                                extensions, and more.</p>
+                            <p><a href="https://www.telerik.com/download/kendo-ui-complete">Download Kendo UI</a> and
+                                experience the difference today</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+    </div>
+    <script>
+        $("#panelbar").kendoPanelBar();
+        $("#panelbar1").kendoPanelBar();
+
+    </script>
+</body>
+
+</html>

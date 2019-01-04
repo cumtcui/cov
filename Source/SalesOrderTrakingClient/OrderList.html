@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sales Order Tracking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- <link rel="stylesheet" href="vendor/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.dataviz.bootstrap.min.css" />
+    <link rel="icon" href="favicon.ico">
+
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.3.1017/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.3.1017/js/kendo.timezones.min.js"></script>
+
+
+    <script src="theme-chooser.js"></script>
+
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+    <!--[if lt IE 9]>
+        <script src="vendor/html5shiv.js"></script>
+        <script src="vendor/respond.min.js"></script>
+        <![endif]-->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style type="text/css">
+        .wall {
+            padding: 1rem 1rem;
+            margin-bottom: 0.5rem;
+            background-color: #D2090F;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <main role="main">
+
+        <div class="wall">
+            <h5>Search vehicles</h5>
+        </div>
+        <div class="container">
+            <div class="input-group mb-3">
+                <input id="order" type="text" class="form-control" placeholder="Order Number / Chassis Id">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <span class="material-icons">&#xe8b6;</span>
+                    </div>
+                </div>
+                <input id="status" style="width: 100%;" />
+            </div>
+        </div>
+        <div class="container" class="hidden-lg visible-md">
+                <div id=grid></div>
+                <hr>
+            </div>
+
+    </main>
+
+
+    <footer class="container">
+        <p>&copy; Volvo 2017-2018</p>
+    </footer>
+    <script>
+        // $(function () {
+        //     var ordersInfo = [{ No: "1", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "2", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "3", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "4", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "5", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "6", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "7", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "8", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "9", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "10", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "11", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "12", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "13", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" },
+        //     { No: "14", OrderNumber: "123", Status: "Invoiced", UpdatedDate: "Nov 15, 2018", Comments: "1231234" }];
+
+        //     $("#grid").kendoGrid({
+        //         columns: [{ title: "#", field: "No", width:50 },
+        //         { title: "Order Number", field: "OrderNumber" },
+        //         { field: "Status" },
+        //         { title: "Updated Date", field: "UpdatedDate" },
+        //         { field: "UpdatedDate" },
+        //         { field: "UpdatedDate" },
+        //         { field: "Comments" }
+        //         ],
+        //         dataSource: {
+        //             data: ordersInfo,
+        //             pageSize: 10,
+        //             serverFiltering: true,
+        //             serverSorting: true
+        //         },
+        //         pageable: {
+        //             alwaysVisible: true,
+        //             pageSizes: [5, 10, 20]
+        //         },
+        //         navigatable: true,
+        //         filterable: true,
+        //         toolbar: ["create", "save", "cancel"]
+
+        //     })
+        // });
+
+        $(document).ready(function () {
+            var vars = [], hash;
+            var q = document.URL.split('?')[1];
+            if (q != undefined) {
+                q = q.split('&');
+                for (var i = 0; i < q.length; i++) {
+                    hash = q[i].split('=');
+                    vars.push(hash[1]);
+                    vars[hash[0]] = hash[1];
+                }
+            }
+            var crudServiceBaseUrl = "http://iconnectov-env.2wgxrp6q8k.us-east-2.elasticbeanstalk.com/v1",
+                dataSource = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: crudServiceBaseUrl + "/Vehicle/GetVehicleListByUser?CDBPartyId=" + vars[0]
+                        },
+                        type: "json"
+                    },
+                    pageSize: 10
+                });
+
+            $("#grid").kendoGrid({
+                dataSource: dataSource,
+                navigatable: true,
+                height: 600,
+                filterable: false,
+                pageable: {
+                    alwaysVisible: true,
+                    pageSizes: [5, 10, 20]
+                },
+                noRecords: {
+                    template: "No data available on current page."
+                },
+                columns: [
+                    { field: "omOrderId", title: "Order Number", template: "<a href='/OrderDetail.html?omorderid=#: omOrderId #'>#: omOrderId # </a>" },
+                    { field: "chassisNumber", title: "Chassis Number", media: "(min-width: 768px)" },
+                    { field: "deliveryAddress", title: "Delivery Address"},
+                    { field: "brand", title: "Brand" , media: "(min-width: 768px)" },
+                    { field: "orderStatus", title: "Status" , media: "(min-width: 768px)" },
+                    { field: "chassisType", title: "Chassis Type" , media: "(min-width: 992px)" },
+                    { field: "vin", title: "Vin" , media: "(min-width: 768px)" },
+                    { field: "lastChangeDate", title: "Change Date" ,template: "#: kendo.toString(kendo.parseDate(lastChangeDate), 'd') #", media: "(min-width: 992px)" }]
+            });
+        });
+
+        $(document).ready(function () {
+            var crudServiceBaseUrl = "http://iconnectov-env.2wgxrp6q8k.us-east-2.elasticbeanstalk.com/v1",
+                data = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: crudServiceBaseUrl + "/Misc/GetOrderStatusList",
+                        },
+                        type: "json"
+                    }
+                });
+
+            // create DropDownList from input HTML element
+            $("#status").kendoDropDownList({
+                dataTextField: "status",
+                dataValueField: "id",
+                dataSource: data,
+                index: 0,
+                change: onChange
+            });
+
+            var status = $("#status").data("kendoDropDownList");
+
+            status.select(0);
+
+            function onChange() {
+                var value = $("#status").val();
+            };
+        });
+
+        // $(function () {
+        //     var crudServiceBaseUrl = "http://localhost:37048/v1",
+        //         dataSource = new kendo.data.DataSource({
+        //             transport: {
+        //                 read: {
+        //                     url: crudServiceBaseUrl + "/Vehicle/GetVehicleListByUser?userid=" + vars[0]
+        //                 },
+        //                 type: "json"
+        //             },
+        //             schema: {
+        //                 data: function (data) {
+        //                     return data.OrderId;
+        //                 }
+        //             },
+        //             pageSize: 10
+        //         });
+
+        //     $("#order").kendoAutoComplete({
+        //         dataSource: dataSource,
+        //         filter: "startswith",
+        //         placeholder: "Select Order...",
+        //         separator: ", "
+        //     });
+        // });
+    </script>
+
+</body>
+
+</html>
